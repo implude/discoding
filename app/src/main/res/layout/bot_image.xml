@@ -18,6 +18,7 @@
         android:textSize="20sp"
         tools:ignore="MissingConstraints" />
     <TextView
+        android:id="@+id/bot_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BotName"

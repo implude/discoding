@@ -16,6 +16,7 @@
         android:weightSum="3">
         <!-- 위에 메인 버튼-->
         <android.widget.Button
+            android:id="@+id/sHosting_btn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text = "hosting"
@@ -26,6 +27,7 @@
             android:background="@drawable/mainbutton"
             />
         <android.widget.Button
+            android:id="@+id/sMain_btn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text = "main"
@@ -35,6 +37,7 @@
             android:layout_weight="1"
             android:background="@drawable/mainbutton"/>
         <android.widget.Button
+            android:id="@+id/sShare_btn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="#4AC9FF"

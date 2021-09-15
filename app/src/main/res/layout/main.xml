@@ -16,6 +16,7 @@
             android:orientation="horizontal">
             <!-- ?꾩뿉 硫붿씤 踰꾪듉-->
             <android.widget.Button
+                android:id="@+id/mHosting_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text = "hosting"
@@ -26,6 +27,7 @@
                 android:background="@drawable/main_button"
                 />
             <android.widget.Button
+                android:id="@+id/mMain_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text = "main"
@@ -36,6 +38,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/main_button"/>
             <android.widget.Button
+                android:id="@+id/mShare_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#FFFFFF"
@@ -46,7 +49,7 @@
                 android:background="@drawable/main_button"/>
         </LinearLayout>
         <android.widget.Button
-            android:id = "@+id/plus"
+            android:id = "@+id/mPlus_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text = "+"
