@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#36393F">
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_weight="0.0625"
@@ -36,7 +36,7 @@
         <android.widget.Button
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:textColor="#4AC9FF"
+            android:textColor="@color/appskycolor"
             android:textSize="18sp"
             android:text = "share"
             android:backgroundTint="#2F3136"
