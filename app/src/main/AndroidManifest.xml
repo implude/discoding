@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Discoding">
-        <activity android:name=".MainActivity"
+        <activity android:name="com.example.blocky.Appmain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CreateBot"/>
+        <activity android:name=".EditBot"/>
+        <activity android:name=".Events"/>
+        <activity android:name=".Share"/>
     </application>
 
 </manifest>
