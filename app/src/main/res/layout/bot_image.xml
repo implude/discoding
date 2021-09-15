@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="BotName"
         android:textSize="22sp"
-        android:textColor="#4AC9FF"
+        android:textColor="@color/appskycolor"
         app:layout_constraintLeft_toRightOf="@id/bot_Image"
         app:layout_constraintTop_toTopOf="@id/bot_Image"
         android:layout_marginLeft="25dp"/>
