@@ -47,7 +47,7 @@
             android:layout_height="match_parent"
             android:layout_marginRight="20dp"
             android:text="EVENT NAME"
-            android:textColor="#4AC9FF"
+            android:textColor="@color/appskycolor"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

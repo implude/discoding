@@ -12,7 +12,7 @@ class Appmain : AppCompatActivity() {
         setContentView(R.layout.edit_bot)
         val plus = findViewById<Button>(R.id.plus)
         plus.setOnClickListener {
-            val gotocreate_bot = Intent(this, Explain::class.java)
+            val gotocreate_bot = Intent(this, createBot::class.java)
             startActivity(gotocreate_bot)
         }
     }

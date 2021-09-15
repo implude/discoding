@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.TextView
 import com.example.discoding.R
 
-class Explain : AppCompatActivity() {
+class createBot : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_bot)
