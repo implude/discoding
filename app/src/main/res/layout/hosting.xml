@@ -75,11 +75,11 @@
 
                 <ImageButton
                     android:id="@+id/hOnOff_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/on" />
+                    android:layout_width="130sp"
+                    android:layout_height="40sp"
+                    android:background="@drawable/highon" />
 
                 <TextView
                     android:id="@+id/hremain_text"
@@ -114,9 +114,9 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/clock"/>
+                        android:layout_width="30sp"
+                        android:layout_height="27sp"
+                        android:background="@drawable/highclock"/>
 
                     <TextView
                         android:layout_marginLeft="30dp"
@@ -130,9 +130,9 @@
                     <ImageButton
                         android:id="@+id/h1AD_btn"
                         android:layout_marginLeft="100dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ad"/>
+                        android:layout_width="75sp"
+                        android:layout_height="33sp"
+                        android:background="@drawable/highad"/>
 
                 </LinearLayout>
                 <LinearLayout
@@ -143,9 +143,9 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/clock"/>
+                        android:layout_width="30sp"
+                        android:layout_height="27sp"
+                        android:background="@drawable/highclock"/>
 
                     <TextView
                         android:layout_marginLeft="30dp"
@@ -159,9 +159,9 @@
                     <ImageButton
                         android:id="@+id/h2AD_btn"
                         android:layout_marginLeft="100dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ad"/>
+                        android:layout_width="75sp"
+                        android:layout_height="33sp"
+                        android:background="@drawable/highad"/>
 
                 </LinearLayout>
 
@@ -187,9 +187,9 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/clock"/>
+                        android:layout_width="30sp"
+                        android:layout_height="27sp"
+                        android:background="@drawable/highclock"/>
 
                     <TextView
                         android:layout_marginLeft="15dp"
@@ -202,9 +202,9 @@
 
                     <ImageView
                         android:layout_marginLeft="35dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/coin"/>
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:background="@drawable/highcoin"/>
 
                     <TextView
                         android:layout_marginLeft="15dp"
@@ -218,9 +218,9 @@
                     <ImageButton
                         android:id="@+id/h1BUY_btn"
                         android:layout_marginLeft="50dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/buy"/>
+                        android:layout_width="75sp"
+                        android:layout_height="33sp"
+                        android:background="@drawable/highbuy"/>
 
                 </LinearLayout>
 
@@ -232,9 +232,9 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/clock"/>
+                        android:layout_width="30sp"
+                        android:layout_height="27sp"
+                        android:background="@drawable/highclock"/>
 
                     <TextView
                         android:layout_marginLeft="15dp"
@@ -246,10 +246,10 @@
                         android:textStyle="bold"/>
 
                     <ImageView
-                        android:layout_marginLeft="35dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/coin"/>
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:background="@drawable/highcoin"
+                        android:layout_marginLeft="35dp" />
 
                     <TextView
                         android:layout_marginLeft="15dp"
@@ -263,9 +263,9 @@
                     <ImageButton
                         android:id="@+id/h2BUY_btn"
                         android:layout_marginLeft="50dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/buy"/>
+                        android:layout_width="75sp"
+                        android:layout_height="33sp"
+                        android:background="@drawable/highbuy"/>
 
                 </LinearLayout>
 
@@ -277,9 +277,9 @@
                     android:gravity="center">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/clock"/>
+                        android:layout_width="30sp"
+                        android:layout_height="27sp"
+                        android:background="@drawable/highclock"/>
 
                     <TextView
                         android:layout_marginLeft="15dp"
@@ -292,9 +292,9 @@
 
                     <ImageView
                         android:layout_marginLeft="35dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/coin"/>
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:background="@drawable/highcoin"/>
 
                     <TextView
                         android:layout_marginLeft="15dp"
@@ -308,9 +308,9 @@
                     <ImageButton
                         android:id="@+id/h3BUY_btn"
                         android:layout_marginLeft="50dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/buy"/>
+                        android:layout_width="75sp"
+                        android:layout_height="33sp"
+                        android:background="@drawable/highbuy"/>
 
                 </LinearLayout>
 
@@ -338,7 +338,7 @@
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/coffee"/>
+                        android:background="@drawable/highcoffee"/>
 
                     <TextView
                         android:layout_marginLeft="15dp"
@@ -361,9 +361,9 @@
                     <ImageButton
                         android:id="@+id/hDONATE_btn"
                         android:layout_marginLeft="30dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/donate"/>
+                        android:layout_width="75sp"
+                        android:layout_height="33sp"
+                        android:background="@drawable/highdonate"/>
 
                 </LinearLayout>
 
