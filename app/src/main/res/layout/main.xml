@@ -31,7 +31,7 @@
                 android:text = "main"
                 android:textSize="18sp"
                 android:textAllCaps="false"
-                android:textColor="#4AC9FF"
+                android:textColor="@color/appskycolor"
                 android:backgroundTint="#2F3136"
                 android:layout_weight="1"
                 android:background="@drawable/main_button"/>
