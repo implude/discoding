@@ -39,7 +39,7 @@
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cbBack_button"
+            app:layout_constraintStart_toEndOf="@+id/ebBack_button"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
