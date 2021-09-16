@@ -72,7 +72,7 @@
 
 
         <LinearLayout
-            android:id = "@+id/evnet_one"
+            android:id = "@+id/eEvent1"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@drawable/background1"
@@ -84,7 +84,7 @@
                 android:layout_marginHorizontal="15dp">
 
                 <TextView
-                    android:id="@+id/event_name"
+                    android:id="@+id/eEvent_name1"
                     android:layout_width="256dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -93,6 +93,7 @@
                     android:textSize="30sp" />
 
                 <ImageButton
+                    android:id="@+id/eEvent_blockcoding_btn1"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -108,7 +109,7 @@
             android:layout_height="30dp" />
 
         <LinearLayout
-            android:id="@+id/event_two"
+            android:id="@+id/eEvent2"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@drawable/background2"
@@ -120,7 +121,7 @@
                 android:layout_marginHorizontal="15dp">
 
                 <TextView
-                    android:id="@+id/event_name"
+                    android:id="@+id/eEvent_name2"
                     android:layout_width="256dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -129,6 +130,7 @@
                     android:textSize="30sp" />
 
                 <ImageButton
+                    android:id="@+id/eEvent_blockcoding_btn2"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -144,7 +146,7 @@
             android:layout_height="30dp" />
 
         <LinearLayout
-            android:id="@+id/event_three"
+            android:id="@+id/eEvent3"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@drawable/background1"
@@ -156,7 +158,7 @@
                 android:layout_marginHorizontal="15dp">
 
                 <TextView
-                    android:id="@+id/event_name"
+                    android:id="@+id/eEvent_name3"
                     android:layout_width="256dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -165,6 +167,7 @@
                     android:textSize="30sp" />
 
                 <ImageButton
+                    android:id="@+id/eEvent_blockcoding_btn3"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -180,7 +183,7 @@
             android:layout_height="30dp" />
 
         <LinearLayout
-            android:id="@+id/event_four"
+            android:id="@+id/eEvent4"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@drawable/background2"
@@ -192,7 +195,7 @@
                 android:layout_marginHorizontal="15dp">
 
                 <TextView
-                    android:id="@+id/event_name"
+                    android:id="@+id/eEvent_name4"
                     android:layout_width="256dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -201,6 +204,7 @@
                     android:textSize="30sp" />
 
                 <ImageButton
+                    android:id="@+id/eEvent_blockcoding_btn4"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
@@ -216,7 +220,7 @@
             android:layout_height="30dp" />
 
         <LinearLayout
-            android:id="@+id/event_five"
+            android:id="@+id/eEvent5e"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@drawable/background1"
@@ -228,7 +232,7 @@
                 android:layout_marginHorizontal="15dp">
 
                 <TextView
-                    android:id="@+id/event_name"
+                    android:id="@+id/eEvent_name5"
                     android:layout_width="256dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -237,6 +241,7 @@
                     android:textSize="30sp" />
 
                 <ImageButton
+                    android:id="@+id/eEvent_blockcoding_btn5"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_gravity="center"
