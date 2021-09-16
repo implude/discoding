@@ -1,6 +1,7 @@
 package com.example.discoding
 
 import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -13,6 +14,18 @@ class HostingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.hosting)
 
+        val hMain_btn = findViewById<android.widget.Button>(R.id.hMain_btn)
+        val hShare_btn = findViewById<android.widget.Button>(R.id.hShare_btn)
+        hMain_btn.setOnClickListener() {
+            val hGo_main = Intent(this, Appmain::class.java)
+            startActivity(hGo_main)
+        }
+        hShare_btn.setOnClickListener() {
+            val hGo_share = Intent(this, hShare_btn::class.java)
+            startActivity(hGo_share)
+        }
+
+        //spinner
         val spinner: Spinner = findViewById(R.id.choose_spinner)
 
         ArrayAdapter.createFromResource(
