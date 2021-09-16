@@ -72,6 +72,7 @@
 
 
         <LinearLayout
+            android:id = "@+id/evnet_one"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@drawable/background"
@@ -107,6 +108,7 @@
             android:layout_height="30dp" />
 
         <LinearLayout
+            android:id="@+id/event_two"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@drawable/background"
@@ -142,6 +144,7 @@
             android:layout_height="30dp" />
 
         <LinearLayout
+            android:id="@+id/event_three"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@drawable/background"
@@ -177,6 +180,7 @@
             android:layout_height="30dp" />
 
         <LinearLayout
+            android:id="@+id/event_four"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@drawable/background"
@@ -212,6 +216,7 @@
             android:layout_height="30dp" />
 
         <LinearLayout
+            android:id="@+id/event_five"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:background="@drawable/background"
