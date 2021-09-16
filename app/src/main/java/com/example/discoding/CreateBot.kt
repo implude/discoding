@@ -18,7 +18,6 @@ class CreateBot :AppCompatActivity(){
             startActivity(cbGo_main)
         }
         cbCreatBot_btn.setOnClickListener() { //봇만들기 버튼 클릭
-            val cbGo = Intent(this, Appmain::class.java)
             startActivity(cbGo_main)
         }
     }
