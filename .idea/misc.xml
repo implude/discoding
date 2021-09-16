@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/smlim/AndroidStudioProjects/discoding/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.35625" />
         <entry key="..\:/Users/smlim/AndroidStudioProjects/discoding/app/src/main/res/drawable/background.xml" value="0.35625" />
         <entry key="..\:/Users/smlim/AndroidStudioProjects/discoding/app/src/main/res/drawable/background1.xml" value="0.35625" />
         <entry key="..\:/Users/smlim/AndroidStudioProjects/discoding/app/src/main/res/drawable/background2.xml" value="0.35625" />
         <entry key="..\:/Users/smlim/AndroidStudioProjects/discoding/app/src/main/res/drawable/buttonstroke.xml" value="0.35625" />
+        <entry key="..\:/Users/smlim/AndroidStudioProjects/discoding/app/src/main/res/drawable/createbot_button.xml" value="0.35625" />
         <entry key="..\:/Users/smlim/AndroidStudioProjects/discoding/app/src/main/res/drawable/main_button.xml" value="0.35625" />
         <entry key="..\:/Users/smlim/AndroidStudioProjects/discoding/app/src/main/res/drawable/mainbutton.xml" value="0.35625" />
         <entry key="..\:/Users/smlim/AndroidStudioProjects/discoding/app/src/main/res/drawable/plusimage_button.xml" value="0.35625" />
