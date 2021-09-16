@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.blocky.Appmain
 
 class EditBot:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

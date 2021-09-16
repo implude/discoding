@@ -1,12 +1,8 @@
-package com.example.blocky
+package com.example.discoding
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import com.example.discoding.CreateBot
-import com.example.discoding.R
-import com.example.discoding.Share
 
 class Appmain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +14,7 @@ class Appmain : AppCompatActivity() {
         val mPlus_btn = findViewById<android.widget.Button>(R.id.mPlus_btn) //메인페이지에 있는 플러스 버튼
 
         mHosting_btn.setOnClickListener() { //메인에서 호스팅 페이지로
-            val mGo_hosting = Intent(this, HostingActivity::class.Java)
+            val mGo_hosting = Intent(this, HostingActivity::class.java)
             startActivity(mGo_hosting)
         }
         mShare_btn.setOnClickListener() { //메인에서 공유 페이지로

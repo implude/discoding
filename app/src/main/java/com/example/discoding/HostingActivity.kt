@@ -1,4 +1,4 @@
-package com.example.discording_hostingpage
+package com.example.discoding
 
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
@@ -7,12 +7,11 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import com.example.discoding.R
 
-class MainActivity : AppCompatActivity() {
+class HostingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.edit_bot)
+        setContentView(R.layout.hosting)
 
         val spinner: Spinner = findViewById(R.id.choose_spinner)
 

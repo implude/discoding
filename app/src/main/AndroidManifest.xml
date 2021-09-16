@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Discoding">
-        <activity android:name="com.example.blocky.Appmain"
+        <activity android:name=".Appmain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

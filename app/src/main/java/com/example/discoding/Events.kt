@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import com.example.blocky.Appmain
 
 class Events:AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

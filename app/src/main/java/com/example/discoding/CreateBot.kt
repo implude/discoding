@@ -1,12 +1,9 @@
 package com.example.discoding
 
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
 import android.widget.ImageButton
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.blocky.Appmain
 
 class CreateBot :AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
