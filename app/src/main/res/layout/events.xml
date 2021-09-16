@@ -92,8 +92,8 @@
                     android:textSize="30sp" />
 
                 <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
                     android:scaleType="fitCenter"
@@ -127,8 +127,8 @@
                     android:textSize="30sp" />
 
                 <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
                     android:scaleType="fitCenter"
@@ -162,8 +162,8 @@
                     android:textSize="30sp" />
 
                 <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
                     android:scaleType="fitCenter"
@@ -197,8 +197,8 @@
                     android:textSize="30sp" />
 
                 <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
                     android:scaleType="fitCenter"
@@ -232,8 +232,8 @@
                     android:textSize="30sp" />
 
                 <ImageButton
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="center"
                     android:background="@android:color/transparent"
                     android:scaleType="fitCenter"
