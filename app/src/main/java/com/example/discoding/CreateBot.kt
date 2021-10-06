@@ -44,7 +44,7 @@ class CreateBot :AppCompatActivity(){
         startActivityForResult(intent, OPEN_GALLERY)
     }
 
-    @Override
+    @Override //(https://believecom.tistory.com/722)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         val cbProfile_image = findViewById<ImageView>(R.id.cbProfile_image)
