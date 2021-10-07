@@ -6,17 +6,24 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.GsonBuilder
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
 class CreateBot :AppCompatActivity(){
-    private val OPEN_GALLERY = 1
+
+    private val cbOPEN_GALLERY = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_bot)
 
@@ -33,15 +40,15 @@ class CreateBot :AppCompatActivity(){
             startActivity(cbGo_main)
         }
         cbProfile_image.setOnClickListener() { //갤러리 올리기 중
-            openGallery()
+            cbopenGallery()
         }
     }
 
     //프로필 이미지 선택
-    private fun openGallery() {
+    private fun cbopenGallery() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.setType("image/*")
-        startActivityForResult(intent, OPEN_GALLERY)
+        startActivityForResult(intent, cbOPEN_GALLERY)
     }
 
     @Override //(https://believecom.tistory.com/722)

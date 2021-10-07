@@ -11,9 +11,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.*
 
 data class MemberResult(
-    val val1: String,
-    val val2: String,
-    val val3: String
+    val val1: String
 )
 
 interface UserRequest {

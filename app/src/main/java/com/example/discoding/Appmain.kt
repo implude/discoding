@@ -15,7 +15,7 @@ class Appmain : AppCompatActivity() {
 
     var gson= GsonBuilder().setLenient().create()
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://5ca3-121-66-18-107.ngrok.io/")
+        .baseUrl("http://ecce-121-66-18-107.ngrok.io")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
@@ -25,30 +25,12 @@ class Appmain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
 
-        service.getuserinfo("online","a","a","a").enqueue(object : Callback<MemberResult> {
+        service.getuserinfo("online","","","").enqueue(object : Callback<MemberResult> {
             override fun onResponse(
                 call: Call<MemberResult>,
                 response: Response<MemberResult>
             ) {
                 Log.d("body",response.body()?.val1.toString())
-                if(/*DB에 저장된 토큰이 있다면*/)
-                {
-                    service.getuserinfo("login",/*토큰 여기에*/,"a","a").enqueue(object : Callback<MemberResult> {
-                        override fun onResponse(
-                            call: Call<MemberResult>,
-                            response: Response<MemberResult>
-                        ) {
-                            //어케어케 해봐
-                            Log.d("body",response.body()?.val1.toString())
-                        }
-
-                        override fun onFailure(call: Call<MemberResult>, t: Throwable) {
-                            Log.d("result",t.toString())
-                        }
-
-
-                    })
-                }
             }
 
             override fun onFailure(call: Call<MemberResult>, t: Throwable) {
