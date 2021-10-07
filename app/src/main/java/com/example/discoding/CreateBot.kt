@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
@@ -20,12 +21,36 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
 class CreateBot :AppCompatActivity(){
+    //서버통신
+    var gson= GsonBuilder().setLenient().create()
+    private val retrofit = Retrofit.Builder()
+        .baseUrl("http://ecce-121-66-18-107.ngrok.io")
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .build()
+    private val service = retrofit.create(cbrequest ::class.java)
 
+    //오픈갤러리
     private val cbOPEN_GALLERY = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_bot)
+
+        val botName = findViewById<EditText>(R.id.cbExplain_botname) //봇이름 입력
+
+        //서버통신
+        service.getbotinfo("김성훈","김성훈","","","").enqueue(object : Callback<cbresult> {
+            override fun onResponse(
+                call: Call<cbresult>,
+                response: Response<cbresult>
+            ) {
+                Log.d("body",response.body()?.msg.toString())
+            }
+
+            override fun onFailure(call: Call<cbresult>, t: Throwable) {
+                Log.d("result",t.toString())
+            }
+        })
 
         val cbBack_button = findViewById<ImageButton>(R.id.cbBack_button) //뒤로가기 버튼
         val cbCreatBot_btn = findViewById<android.widget.Button>(R.id.cbCreatBot_btn)// 봇 만들기 버튼

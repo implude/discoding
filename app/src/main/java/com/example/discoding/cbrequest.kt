@@ -1,4 +1,4 @@
-/*package com.example.discoding
+package com.example.discoding
 
 import retrofit2.Call
 import retrofit2.http.Field
@@ -15,8 +15,8 @@ interface cbrequest {
         @Field("description") description: String,
         @Field("token") token: String,
         @Field("img_url") img_url: String, //이미지 경로
-    ): Call<MemberResult>
+    ): Call<cbresult>
 }
 data class cbresult(
-    val
-)*/
+    val msg: String
+)
