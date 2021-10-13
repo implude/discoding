@@ -24,7 +24,7 @@ class CreateBot :AppCompatActivity(){
     //서버통신
     var gson= GsonBuilder().setLenient().create()
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://ecce-121-66-18-107.ngrok.io")
+        .baseUrl("http://a02f-121-66-18-107.ngrok.io/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
     private val service = retrofit.create(cbrequest ::class.java)
@@ -36,37 +36,44 @@ class CreateBot :AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_bot)
 
-        val botName = findViewById<EditText>(R.id.cbExplain_botname) //봇이름 입력
-
-        //서버통신
-        service.getbotinfo("김성훈","김성훈","","","").enqueue(object : Callback<cbresult> {
-            override fun onResponse(
-                call: Call<cbresult>,
-                response: Response<cbresult>
-            ) {
-                Log.d("body",response.body()?.msg.toString())
-            }
-
-            override fun onFailure(call: Call<cbresult>, t: Throwable) {
-                Log.d("result",t.toString())
-            }
-        })
-
         val cbBack_button = findViewById<ImageButton>(R.id.cbBack_button) //뒤로가기 버튼
         val cbCreatBot_btn = findViewById<android.widget.Button>(R.id.cbCreatBot_btn)// 봇 만들기 버튼
         val cbProfile_image = findViewById<ImageView>(R.id.cbProfile_image)
         val cbGo_main = Intent(this, Appmain::class.java) // 뒤로가기버튼이나 봇만들기 버튼 둘 중 아무거나 눌러도 메인으로 감
+        val cbInputBotName = findViewById<EditText>(R.id.cbExplain_botname) //봇이름 입력
+        val cbInputBotDescription = findViewById<EditText>(R.id.cbDescription_explain)
 
 
         cbBack_button.setOnClickListener() { //뒤로가기 버튼 클릭
             startActivity(cbGo_main)
         }
+
         cbCreatBot_btn.setOnClickListener() { //봇만들기 버튼 클릭
+            val cbSetBotName = cbInputBotName.getText().toString() //봇네임 입력된 것을 받음
+            val cbSetBotDescription = cbInputBotDescription.getText().toString() //봇설명 입력된것을 받음
+            //서버통신 봇네임 받아서 보내야함
+            service.getbotinfo("김성훈", cbSetBotName,cbSetBotDescription,"","").enqueue(object : Callback<cbresult> {
+                override fun onResponse(
+                    call: Call<cbresult>,
+                    response: Response<cbresult>
+                ) {
+                    Log.d("body",response.body()?.msg.toString())
+                }
+
+                override fun onFailure(call: Call<cbresult>, t: Throwable) {
+                    Log.d("result",t.toString())
+                }
+            })
             startActivity(cbGo_main)
         }
+
         cbProfile_image.setOnClickListener() { //갤러리 올리기 중
             cbopenGallery()
         }
+
+
+
+
     }
 
     //프로필 이미지 선택
