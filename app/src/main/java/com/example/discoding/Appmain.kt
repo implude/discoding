@@ -15,7 +15,7 @@ class Appmain : AppCompatActivity() {
 
     var gson= GsonBuilder().setLenient().create()
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://ecce-121-66-18-107.ngrok.io")
+        .baseUrl("http://fdff-121-66-18-107.ngrok.io/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
