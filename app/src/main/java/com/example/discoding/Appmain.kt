@@ -31,8 +31,7 @@ class Appmain : AppCompatActivity() {
         val sharedPreference = getSharedPreferences("UUID", 0)
         val editor = sharedPreference.edit()
 
-        Log.d("Res", sharedPreference.getString("UUID", null).toString())
-//        if(sharedPreference.getString("UUID", "0").toString() == "0"){
+        if(sharedPreference.getString("UUID", null).toString() == "null"){
             service2.getuuid().enqueue(object : Callback<uuid> {
                 override fun onResponse(
                     call: Call<uuid>,
@@ -58,10 +57,10 @@ class Appmain : AppCompatActivity() {
                     Log.d("result",t.toString())
                 }
             })
-//        }
-//        else{
-//            Log.d("Response", sharedPreference.getString("UUID", "0").toString())
-//        }
+        }
+        else{
+            Log.d("Response", sharedPreference.getString("UUID", "0").toString())
+        }
 
 
 
