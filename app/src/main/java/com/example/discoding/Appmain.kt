@@ -21,6 +21,7 @@ class Appmain : AppCompatActivity() {
 
     private val service = retrofit.create(UserRequest ::class.java)
     private val service2 = retrofit.create(Request2 ::class.java)
+    private val service3 = retrofit.create(Request3 ::class.java)
 
 
 
@@ -59,7 +60,17 @@ class Appmain : AppCompatActivity() {
             })
         }
         else{
-            Log.d("Response", sharedPreference.getString("UUID", "0").toString())
+            service3.send_uuid(sharedPreference.getString("UUID", null).toString()).enqueue(object : Callback<get_info> {
+                override fun onResponse(
+                    call: Call<get_info>,
+                    response: Response<get_info>
+                ) {
+
+                }
+                override fun onFailure(call: Call<get_info>, t: Throwable) {
+                    Log.d("result",t.toString())
+                }
+            })
         }
 
 
