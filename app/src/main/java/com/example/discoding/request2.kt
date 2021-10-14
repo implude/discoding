@@ -10,16 +10,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.*
 
-data class MemberResult(
+data class uuid(
     val uuid: String
 )
 
-interface UserRequest {
+interface Request2 {
 
-    @FormUrlEncoded
-    @POST("/new")
-    fun getuserinfo(
-        @Field("UUID") UUID: String,
-    ): Call<MemberResult>
+    @GET("/online")
+    fun getuuid(): Call<uuid>
 
 }

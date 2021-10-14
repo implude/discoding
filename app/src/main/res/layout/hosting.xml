@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="15sp"
-                    android:text="user님의 남은 호스팅 시간:"
+                    android:text="사용자님의 남은 호스팅 시간:"
                     android:textColor="#C8CACF"
                     android:textSize="16dp" />
 

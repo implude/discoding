@@ -15,28 +15,56 @@ class Appmain : AppCompatActivity() {
 
     var gson= GsonBuilder().setLenient().create()
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://ecce-121-66-18-107.ngrok.io")
+        .baseUrl("http://10.0.2.2:80")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
     private val service = retrofit.create(UserRequest ::class.java)
+    private val service2 = retrofit.create(Request2 ::class.java)
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main)
 
-        service.getuserinfo("online","","","").enqueue(object : Callback<MemberResult> {
-            override fun onResponse(
-                call: Call<MemberResult>,
-                response: Response<MemberResult>
-            ) {
-                Log.d("body",response.body()?.val1.toString())
-            }
+        val sharedPreference = getSharedPreferences("UUID", 0)
+        val editor = sharedPreference.edit()
 
-            override fun onFailure(call: Call<MemberResult>, t: Throwable) {
-                Log.d("result",t.toString())
-            }
-        })
+        Log.d("Res", sharedPreference.getString("UUID", null).toString())
+//        if(sharedPreference.getString("UUID", "0").toString() == "0"){
+            service2.getuuid().enqueue(object : Callback<uuid> {
+                override fun onResponse(
+                    call: Call<uuid>,
+                    response: Response<uuid>
+                ) {
+                    editor.putString("UUID", response.body()?.uuid.toString())
+                    editor.apply()
+                    service.getuserinfo(response.body()?.uuid.toString()).enqueue(object : Callback<MemberResult> {
+                    override fun onResponse(
+                        call: Call<MemberResult>,
+                        response: Response<MemberResult>
+                    ) {
+
+                    }
+
+                    override fun onFailure(call: Call<MemberResult>, t: Throwable) {
+                        Log.d("result",t.toString())
+                    }
+                })
+                }
+
+                override fun onFailure(call: Call<uuid>, t: Throwable) {
+                    Log.d("result",t.toString())
+                }
+            })
+//        }
+//        else{
+//            Log.d("Response", sharedPreference.getString("UUID", "0").toString())
+//        }
+
+
+
 
 
         val mHosting_btn = findViewById<android.widget.Button>(R.id.mHosting_btn) //메인페이지에 있는 호스팅 버튼
@@ -58,4 +86,6 @@ class Appmain : AppCompatActivity() {
             startActivity(mGo_CreateBot)
         }
     }
+
+
 }
