@@ -72,13 +72,16 @@ class HostingActivity : AppCompatActivity() {
         //서버와 통신
         val hremain_text: TextView = findViewById(R.id.hremain_text)
         val hTime_text: TextView = findViewById(R.id.hTime_text)
+
+        val sharedPreference = getSharedPreferences("UUID", 0)
+        val UUID = sharedPreference.getString("UUID", "").toString()
+
         //userid는 안드로이드 내부에 저장된 고유 값으로 한다.
-        service.hotingloading("eks0220").enqueue(object : Callback<hotingpagevalue> {
+        service.hotingloading(UUID).enqueue(object : Callback<hotingpagevalue> {
             override fun onResponse(
                 call: Call<hotingpagevalue>,
                 response: Response<hotingpagevalue>
             ) {
-                hremain_text.text = response?.body()?.username.toString()
                 hTime_text.text = response?.body()?.remaintime.toString()
             }
 
