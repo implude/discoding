@@ -31,7 +31,6 @@ class Appmain : AppCompatActivity() {
 
         val sharedPreference = getSharedPreferences("UUID", 0)
         val editor = sharedPreference.edit()
-
         if(sharedPreference.getString("UUID", null).toString() == "null"){
             service2.getuuid().enqueue(object : Callback<uuid> {
                 override fun onResponse(
@@ -41,19 +40,17 @@ class Appmain : AppCompatActivity() {
                     editor.putString("UUID", response.body()?.uuid.toString())
                     editor.apply()
                     service.getuserinfo(response.body()?.uuid.toString()).enqueue(object : Callback<MemberResult> {
-                    override fun onResponse(
-                        call: Call<MemberResult>,
-                        response: Response<MemberResult>
-                    ) {
-
-                    }
-
-                    override fun onFailure(call: Call<MemberResult>, t: Throwable) {
-                        Log.d("result",t.toString())
-                    }
-                })
+                        override fun onResponse(
+                            call: Call<MemberResult>,
+                            response: Response<MemberResult>
+                        ) {
+                            Log.d("hfd", response.body()?.msg.toString())
+                        }
+                        override fun onFailure(call: Call<MemberResult>, t: Throwable) {
+                            Log.d("result",t.toString())
+                        }
+                    })
                 }
-
                 override fun onFailure(call: Call<uuid>, t: Throwable) {
                     Log.d("result",t.toString())
                 }
@@ -65,7 +62,7 @@ class Appmain : AppCompatActivity() {
                     call: Call<get_info>,
                     response: Response<get_info>
                 ) {
-
+                    //리사이클러뷰 하면됌
                 }
                 override fun onFailure(call: Call<get_info>, t: Throwable) {
                     Log.d("result",t.toString())
