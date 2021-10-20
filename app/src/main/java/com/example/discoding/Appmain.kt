@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -92,6 +93,22 @@ class Appmain : AppCompatActivity() {
             val mGo_CreateBot = Intent(this, CreateBot::class.java)
             startActivity(mGo_CreateBot)
         }
+
+        //리사이클러뷰
+        val mainRecycler = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.mainrecycler)
+        val profileList = arrayListOf(
+            Profiles("김은교 일해라"),
+            Profiles("가자"),
+            Profiles("ㄷ자"),
+            Profiles("ㄹ자"),
+            Profiles("ㅎ자"),
+            Profiles("ㅋ자"),
+            Profiles("ㅂ자")
+        )
+        mainRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        mainRecycler.setHasFixedSize(true)
+
+        mainRecycler.adapter = ProfileAdapter(profileList)
     }
 
 
