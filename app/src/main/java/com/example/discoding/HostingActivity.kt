@@ -42,8 +42,7 @@ class HostingActivity : AppCompatActivity() {
         class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
 
             override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-                // An item was selected. You can retrieve the selected item using
-                // parent.getItemAtPosition(pos)
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -52,7 +51,7 @@ class HostingActivity : AppCompatActivity() {
         }
 
         val items = resources.getStringArray(R.array.discording_array)
-        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items)
+        val adapter = ArrayAdapter<String>(this, R.layout.spinner, items)
         spinner.adapter = adapter
     }
 }
