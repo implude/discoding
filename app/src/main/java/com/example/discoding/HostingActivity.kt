@@ -4,12 +4,26 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
+import android.widget.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+
 
 class HostingActivity : AppCompatActivity() {
+
+    private val retrofit = Retrofit.Builder()
+        .addConverterFactory(GsonConverterFactory.create())
+        .baseUrl("http://10.0.2.2:80")
+        .build()
+
+    private val service = retrofit.create(HostingService::class.java)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.hosting)
@@ -53,5 +67,30 @@ class HostingActivity : AppCompatActivity() {
         val items = resources.getStringArray(R.array.discording_array)
         val adapter = ArrayAdapter<String>(this, R.layout.spinner, items)
         spinner.adapter = adapter
+
+        //서버와 통신
+        val hremain_text: TextView = findViewById(R.id.hremain_text)
+        val hTime_text: TextView = findViewById(R.id.hTime_text)
+
+        val sharedPreference = getSharedPreferences("UUID", 0)
+        val UUID = sharedPreference.getString("UUID", "").toString()
+
+        //userid는 안드로이드 내부에 저장된 고유 값으로 한다.
+        service.hotingloading(UUID).enqueue(object : Callback<hotingpagevalue> {
+            override fun onResponse(
+                call: Call<hotingpagevalue>,
+                response: Response<hotingpagevalue>
+            ) {
+                hTime_text.text = response?.body()?.remaintime.toString()
+            }
+
+            override fun onFailure(call: Call<hotingpagevalue>, t: Throwable) {
+                Log.e("response", t.toString())
+            }
+        })
+        
     }
+
+
 }
+
