@@ -24,9 +24,17 @@ class HostingActivity : AppCompatActivity() {
 
     private val service = retrofit.create(HostingService::class.java)
 
+    private var _binding: ActivitMainBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.hosting)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setupSpinnerBotname()
+        setupSpinnerHandler()
 
         val hMain_btn = findViewById<android.widget.Button>(R.id.hMain_btn)
         val hShare_btn = findViewById<android.widget.Button>(R.id.hShare_btn)
@@ -38,35 +46,6 @@ class HostingActivity : AppCompatActivity() {
             val hGo_share = Intent(this, hShare_btn::class.java)
             startActivity(hGo_share)
         }
-
-        //spinner
-        val spinner: Spinner = findViewById(R.id.choose_spinner)
-
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.discording_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner.adapter = adapter
-        }
-
-        class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
-
-            override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>) {
-                // Another interface callback
-            }
-        }
-
-        val items = resources.getStringArray(R.array.discording_array)
-        val adapter = ArrayAdapter<String>(this, R.layout.spinner, items)
-        spinner.adapter = adapter
 
         //서버와 통신
         val hremain_text: TextView = findViewById(R.id.hremain_text)
@@ -90,6 +69,23 @@ class HostingActivity : AppCompatActivity() {
         })
         
     }
+
+    private fun setupSpinnerBotname(){
+        val Botname = resources.getStringArray(R.array.discording_array)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerYear.adapter = adapter
+    }
+
+    private fun setupSpinnerHandler(){
+        binding.spinnerBotname.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                binding.txtBotname.text = "Selected: ${binding.spinnerBotname.getItemAtPosition(position)}"
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
 
 
 }

@@ -13,11 +13,9 @@ import android.widget.Spinner
 import androidx.annotation.LayoutRes
 import com.example.discoding.R
 
-class ArrayAdapter(
-    context: Context,
-    @LayoutRes private val resId: Int,
-    private val values: MutableList<Spinner>
-    ) : ArrayAdapter<Spinner>(context, resId, values) {
+class ArrayAdapter(){
+
+}
 
 
 }
