@@ -10,19 +10,18 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.*
 
-data class MemberResult(
-    val val1: String
+data class get_info(
+    val bot_name: String,
+    val des : String,
+    val img : String
 )
 
-interface UserRequest {
+interface Request3 {
 
     @FormUrlEncoded
-    @POST("/{path}")
-    fun getuserinfo(
-        @Path("path") path: String,
-        @Field("userId") userId: String,
-        @Field("botName") botname: String,
-        @Field("eventName") eventname: String
-    ): Call<MemberResult>
+    @POST("/login")
+    fun send_uuid(
+        @Field("UUID") UUID: String
+    ): Call<get_info>
 
 }

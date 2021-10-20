@@ -21,6 +21,7 @@ class Appmain : AppCompatActivity() {
 
     private val service = retrofit.create(UserRequest ::class.java)
     private val service2 = retrofit.create(Request2 ::class.java)
+    private val service3 = retrofit.create(Request3 ::class.java)
 
 
 
@@ -31,8 +32,7 @@ class Appmain : AppCompatActivity() {
         val sharedPreference = getSharedPreferences("UUID", 0)
         val editor = sharedPreference.edit()
 
-        Log.d("Res", sharedPreference.getString("UUID", null).toString())
-//        if(sharedPreference.getString("UUID", "0").toString() == "0"){
+        if(sharedPreference.getString("UUID", null).toString() == "null"){
             service2.getuuid().enqueue(object : Callback<uuid> {
                 override fun onResponse(
                     call: Call<uuid>,
@@ -58,10 +58,20 @@ class Appmain : AppCompatActivity() {
                     Log.d("result",t.toString())
                 }
             })
-//        }
-//        else{
-//            Log.d("Response", sharedPreference.getString("UUID", "0").toString())
-//        }
+        }
+        else{
+            service3.send_uuid(sharedPreference.getString("UUID", null).toString()).enqueue(object : Callback<get_info> {
+                override fun onResponse(
+                    call: Call<get_info>,
+                    response: Response<get_info>
+                ) {
+
+                }
+                override fun onFailure(call: Call<get_info>, t: Throwable) {
+                    Log.d("result",t.toString())
+                }
+            })
+        }
 
 
 
