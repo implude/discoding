@@ -15,6 +15,6 @@ interface HostingService {
 }
 
 data class hotingpagevalue(
-    val username: String,
+    val userid: String,
     val remaintime: String
 )

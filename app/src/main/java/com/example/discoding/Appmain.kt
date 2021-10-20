@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -31,7 +32,6 @@ class Appmain : AppCompatActivity() {
 
         val sharedPreference = getSharedPreferences("UUID", 0)
         val editor = sharedPreference.edit()
-
         if(sharedPreference.getString("UUID", null).toString() == "null"){
             service2.getuuid().enqueue(object : Callback<uuid> {
                 override fun onResponse(
@@ -41,19 +41,17 @@ class Appmain : AppCompatActivity() {
                     editor.putString("UUID", response.body()?.uuid.toString())
                     editor.apply()
                     service.getuserinfo(response.body()?.uuid.toString()).enqueue(object : Callback<MemberResult> {
-                    override fun onResponse(
-                        call: Call<MemberResult>,
-                        response: Response<MemberResult>
-                    ) {
-
-                    }
-
-                    override fun onFailure(call: Call<MemberResult>, t: Throwable) {
-                        Log.d("result",t.toString())
-                    }
-                })
+                        override fun onResponse(
+                            call: Call<MemberResult>,
+                            response: Response<MemberResult>
+                        ) {
+                            Log.d("hfd", response.body()?.msg.toString())
+                        }
+                        override fun onFailure(call: Call<MemberResult>, t: Throwable) {
+                            Log.d("result",t.toString())
+                        }
+                    })
                 }
-
                 override fun onFailure(call: Call<uuid>, t: Throwable) {
                     Log.d("result",t.toString())
                 }
@@ -65,7 +63,7 @@ class Appmain : AppCompatActivity() {
                     call: Call<get_info>,
                     response: Response<get_info>
                 ) {
-
+                    //리사이클러뷰 하면됌
                 }
                 override fun onFailure(call: Call<get_info>, t: Throwable) {
                     Log.d("result",t.toString())
@@ -95,6 +93,22 @@ class Appmain : AppCompatActivity() {
             val mGo_CreateBot = Intent(this, CreateBot::class.java)
             startActivity(mGo_CreateBot)
         }
+
+        //리사이클러뷰
+        val mainRecycler = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.mainrecycler)
+        val profileList = arrayListOf(
+            Profiles("김은교 일해라"),
+            Profiles("가자"),
+            Profiles("ㄷ자"),
+            Profiles("ㄹ자"),
+            Profiles("ㅎ자"),
+            Profiles("ㅋ자"),
+            Profiles("ㅂ자")
+        )
+        mainRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        mainRecycler.setHasFixedSize(true)
+
+        mainRecycler.adapter = ProfileAdapter(profileList)
     }
 
 

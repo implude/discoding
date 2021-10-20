@@ -52,7 +52,7 @@ class HostingActivity : AppCompatActivity() {
         val hTime_text: TextView = findViewById(R.id.hTime_text)
 
         val sharedPreference = getSharedPreferences("UUID", 0)
-        val UUID = sharedPreference.getString("UUID", "").toString()
+        val UUID = sharedPreference.getString("UUID", null).toString()
 
         //userid는 안드로이드 내부에 저장된 고유 값으로 한다.
         service.hotingloading(UUID).enqueue(object : Callback<hotingpagevalue> {
