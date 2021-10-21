@@ -4,7 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/kimsh/Desktop/discorodingij11111111111111111111111111111/discoding/app/src/main/res/drawable/plusimage_button.xml" value="0.14583333333333334" />
-        <entry key="..\:/Users/kimsh/Desktop/discorodingij11111111111111111111111111111/discoding/app/src/main/res/layout/bot_image.xml" value="0.2" />
+        <entry key="..\:/Users/kimsh/Desktop/discorodingij11111111111111111111111111111/discoding/app/src/main/res/layout/bot_image.xml" value="0.12864583333333332" />
         <entry key="..\:/Users/kimsh/Desktop/discorodingij11111111111111111111111111111/discoding/app/src/main/res/layout/create_bot.xml" value="0.1671195652173913" />
         <entry key="..\:/Users/kimsh/Desktop/discorodingij11111111111111111111111111111/discoding/app/src/main/res/layout/edit_bot.xml" value="0.264" />
         <entry key="..\:/Users/kimsh/Desktop/discorodingij11111111111111111111111111111/discoding/app/src/main/res/layout/event_setting.xml" value="0.12864583333333332" />
@@ -44,15 +44,6 @@
         <entry key="..\:/Users/superhoy/AndroidStudioProjects/discoding2/app/src/main/res/layout/event_setting.xml" value="0.12952898550724637" />
         <entry key="..\:/Users/superhoy/AndroidStudioProjects/discoding2/app/src/main/res/layout/item_recyclerview1.xml" value="0.18072916666666666" />
         <entry key="..\:/Users/superhoy/AndroidStudioProjects/discoding2/app/src/main/res/layout/item_recyclerview2.xml" value="0.18072916666666666" />
-        <entry key="..\:/Users/user/Documents/discoding/app/src/main/res/drawable/mainbutton.xml" value="0.3109375" />
-        <entry key="..\:/Users/user/Documents/discoding/app/src/main/res/drawable/spinner_bg.xml" value="0.3109375" />
-        <entry key="..\:/Users/user/Documents/discoding/app/src/main/res/drawable/spinnercustom.xml" value="0.3109375" />
-        <entry key="..\:/Users/user/Documents/discoding/app/src/main/res/drawable/spinnerstyle.xml" value="0.22083333333333333" />
-        <entry key="..\:/Users/user/Documents/discoding/app/src/main/res/layout/bot_image.xml" value="0.3359375" />
-        <entry key="..\:/Users/user/Documents/discoding/app/src/main/res/layout/create_bot.xml" value="0.3359375" />
-        <entry key="..\:/Users/user/Documents/discoding/app/src/main/res/layout/hosting.xml" value="0.1743659420289855" />
-        <entry key="..\:/Users/user/Documents/discoding/app/src/main/res/layout/spinner.xml" value="0.23854166666666668" />
-        <entry key="..\:/Users/user/Documents/discoding/app/src/main/res/layout/spinner_item.xml" value="0.2046875" />
         <entry key="..\:/Users/user/Documents/discording-main/discoding/app/src/main/res/drawable/spinner_background.xml" value="0.35625" />
         <entry key="..\:/Users/user/Documents/discording-main/discoding/app/src/main/res/layout/a.xml" value="0.3015625" />
         <entry key="..\:/Users/user/Documents/discording-main/discoding/app/src/main/res/layout/activity_main.xml" value="0.25" />
@@ -64,10 +55,12 @@
         <entry key="..\:/Users/user/Documents/discording-main/discoding/app/src/main/res/layout/item_recyclerview2.xml" value="0.3359375" />
         <entry key="..\:/Users/user/Documents/discording-main/discoding/app/src/main/res/layout/share.xml" value="0.3359375" />
         <entry key="..\:/discoding/app/src/main/res/layout/hosting.xml" value="0.33" />
+        <entry key="..\:/discoding/app/src/main/res/layout/spinner.xml" value="0.15172101449275363" />
+        <entry key="..\:/discoding/app/src/main/res/layout/spinner_item.xml" value="0.2953125" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

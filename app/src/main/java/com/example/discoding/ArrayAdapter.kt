@@ -16,6 +16,3 @@ import com.example.discoding.R
 class ArrayAdapter(){
 
 }
-
-
-}

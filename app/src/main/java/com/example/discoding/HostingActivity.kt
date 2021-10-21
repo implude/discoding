@@ -19,22 +19,14 @@ class HostingActivity : AppCompatActivity() {
 
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl("http://10.0.2.2:80")
+        .baseUrl("http://34.64.200.191:4000")
         .build()
 
     private val service = retrofit.create(HostingService::class.java)
 
-    private var _binding: ActivitMainBinding? = null
-    private val binding get() = _binding!!
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.hosting)
-        _binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        setupSpinnerBotname()
-        setupSpinnerHandler()
 
         val hMain_btn = findViewById<android.widget.Button>(R.id.hMain_btn)
         val hShare_btn = findViewById<android.widget.Button>(R.id.hShare_btn)
@@ -47,12 +39,41 @@ class HostingActivity : AppCompatActivity() {
             startActivity(hGo_share)
         }
 
+        //spinner
+        val spinner: Spinner = findViewById(R.id.choose_spinner)
+
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.discording_array,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            // Specify the layout to use when the list of choices appears
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            // Apply the adapter to the spinner
+            spinner.adapter = adapter
+        }
+
+        class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
+
+            override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
+
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+                // Another interface callback
+            }
+        }
+
+        val items = resources.getStringArray(R.array.discording_array)
+//        val adapter = ArrayAdapter<String>(this, R.layout.spinner, items)
+//        spinner.adapter = adapter
+
         //서버와 통신
         val hremain_text: TextView = findViewById(R.id.hremain_text)
         val hTime_text: TextView = findViewById(R.id.hTime_text)
 
         val sharedPreference = getSharedPreferences("UUID", 0)
-        val UUID = sharedPreference.getString("UUID", null).toString()
+        val UUID = sharedPreference.getString("UUID", "").toString()
 
         //userid는 안드로이드 내부에 저장된 고유 값으로 한다.
         service.hotingloading(UUID).enqueue(object : Callback<hotingpagevalue> {
@@ -67,25 +88,8 @@ class HostingActivity : AppCompatActivity() {
                 Log.e("response", t.toString())
             }
         })
-        
+
     }
-
-    private fun setupSpinnerBotname(){
-        val Botname = resources.getStringArray(R.array.discording_array)
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item)
-        binding.spinnerYear.adapter = adapter
-    }
-
-    private fun setupSpinnerHandler(){
-        binding.spinnerBotname.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                binding.txtBotname.text = "Selected: ${binding.spinnerBotname.getItemAtPosition(position)}"
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
-            }
-        }
 
 
 }

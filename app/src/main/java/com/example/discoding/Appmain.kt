@@ -16,7 +16,7 @@ class Appmain : AppCompatActivity() {
 
     var gson= GsonBuilder().setLenient().create()
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://10.0.2.2:80")
+        .baseUrl("http://34.64.200.191:4000/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
