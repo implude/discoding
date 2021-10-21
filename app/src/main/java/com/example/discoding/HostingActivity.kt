@@ -66,7 +66,7 @@ class HostingActivity : AppCompatActivity() {
         }
 
         val items = resources.getStringArray(R.array.discording_array)
-        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items)
+        val adapter = ArrayAdapter<String>(this, R.layout.spinner_item, items)
         spinner.adapter = adapter
 
         //서버와 통신
