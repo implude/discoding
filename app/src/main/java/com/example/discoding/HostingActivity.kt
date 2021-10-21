@@ -19,7 +19,7 @@ class HostingActivity : AppCompatActivity() {
 
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl("http://34.64.200.191:4000")
+        .baseUrl("http://10.0.2.2:80")
         .build()
 
     private val service = retrofit.create(HostingService::class.java)
@@ -56,7 +56,8 @@ class HostingActivity : AppCompatActivity() {
         class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
 
             override fun onItemSelected(parent: AdapterView<*>, view: View?, pos: Int, id: Long) {
-
+                // An item was selected. You can retrieve the selected item using
+                // parent.getItemAtPosition(pos)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -65,15 +66,15 @@ class HostingActivity : AppCompatActivity() {
         }
 
         val items = resources.getStringArray(R.array.discording_array)
-//        val adapter = ArrayAdapter<String>(this, R.layout.spinner, items)
-//        spinner.adapter = adapter
+        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items)
+        spinner.adapter = adapter
 
         //서버와 통신
         val hremain_text: TextView = findViewById(R.id.hremain_text)
         val hTime_text: TextView = findViewById(R.id.hTime_text)
 
         val sharedPreference = getSharedPreferences("UUID", 0)
-        val UUID = sharedPreference.getString("UUID", "").toString()
+        val UUID = sharedPreference.getString("UUID", null).toString()
 
         //userid는 안드로이드 내부에 저장된 고유 값으로 한다.
         service.hotingloading(UUID).enqueue(object : Callback<hotingpagevalue> {
