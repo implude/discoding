@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import android.widget.ArrayAdapter.createFromResource
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,7 +20,7 @@ class HostingActivity : AppCompatActivity() {
 
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl("http://10.0.2.2:80")
+        .baseUrl("http://f022-121-66-18-107.ngrok.io/")
         .build()
 
     private val service = retrofit.create(HostingService::class.java)
@@ -42,16 +43,16 @@ class HostingActivity : AppCompatActivity() {
         //spinner
         val spinner: Spinner = findViewById(R.id.choose_spinner)
 
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.discording_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            spinner.adapter = adapter
-        }
+//        ArrayAdapter.createFromResource(
+//            this,
+//            R.array.discording_array,
+//            android.R.layout.simple_spinner_item
+//        ).also { adapter ->
+//            // Specify the layout to use when the list of choices appears
+//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//            // Apply the adapter to the spinner
+//            spinner.adapter = adapter
+//        }
 
         class SpinnerActivity : Activity(), AdapterView.OnItemSelectedListener {
 
@@ -94,4 +95,3 @@ class HostingActivity : AppCompatActivity() {
 
 
 }
-

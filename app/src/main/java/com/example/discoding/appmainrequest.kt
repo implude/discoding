@@ -16,12 +16,15 @@ data class get_info(
     val img : String
 )
 
+class arrayGet_info(
+    val info: List<get_info>
+)
 interface Request3 {
 
     @FormUrlEncoded
     @POST("/login")
     fun send_uuid(
         @Field("UUID") UUID: String
-    ): Call<get_info>
+    ): Call<arrayGet_info>
 
 }
