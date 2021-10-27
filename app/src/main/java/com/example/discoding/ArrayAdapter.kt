@@ -1,5 +1,4 @@
-package com.example.discording_hostingpage
-
+package com.example.discoding
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
@@ -13,6 +12,7 @@ import android.widget.Spinner
 import androidx.annotation.LayoutRes
 import com.example.discoding.R
 
-class ArrayAdapter(){
+class ArrayAdapter() {
 
 }
+
