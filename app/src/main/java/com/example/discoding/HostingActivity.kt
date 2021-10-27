@@ -91,6 +91,26 @@ class HostingActivity : AppCompatActivity() {
             }
         })
 
+        //결제화면으로 넘어가는 거
+        val h1BUY_btn = findViewById<ImageButton>(R.id.h1BUY_btn)
+        val h2BUY_btn = findViewById<ImageButton>(R.id.h2BUY_btn)
+        val h3BUY_btn = findViewById<ImageButton>(R.id.h3BUY_btn)
+
+        h1BUY_btn.setOnClickListener() {
+            val h1BUY = Intent(this, PurchaseActivity::class.java)
+            startActivity(h1BUY)
+        }
+
+        h1BUY_btn.setOnClickListener() {
+            val h1BUY = Intent(this, PurchaseActivity::class.java)
+            startActivity(h1BUY)
+        }
+
+        h1BUY_btn.setOnClickListener() {
+            val h1BUY = Intent(this, PurchaseActivity::class.java)
+            startActivity(h1BUY)
+        }
+
     }
 
 
