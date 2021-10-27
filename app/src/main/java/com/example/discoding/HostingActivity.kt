@@ -19,7 +19,7 @@ class HostingActivity : AppCompatActivity() {
 
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl("http://10.0.2.2:80")
+        .baseUrl("http://34.64.200.191:4000")
         .build()
 
     private val service = retrofit.create(HostingService::class.java)

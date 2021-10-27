@@ -24,7 +24,7 @@ class CreateBot :AppCompatActivity(){
     //서버통신
     var gson= GsonBuilder().setLenient().create()
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://34.64.200.191:4000/")
+        .baseUrl("http://34.64.200.191:4000")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
     private val service = retrofit.create(cbrequest ::class.java)

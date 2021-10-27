@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -16,7 +18,7 @@ class Appmain : AppCompatActivity() {
 
     var gson= GsonBuilder().setLenient().create()
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://34.64.200.191:4000/")
+        .baseUrl("http://34.64.200.191:4000")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
@@ -109,7 +111,11 @@ class Appmain : AppCompatActivity() {
         mainRecycler.setHasFixedSize(true)
 
         mainRecycler.adapter = ProfileAdapter(profileList)
+
+
+
     }
+
 
 
 }
