@@ -13,7 +13,6 @@ interface cbrequest {
         @Field("userid") userid: String,
         @Field("botName") botname: String,
         @Field("description") description: String,
-        @Field("token") token: String,
         @Field("img_url") img_url: String, //이미지 경로
     ): Call<cbresult>
 }

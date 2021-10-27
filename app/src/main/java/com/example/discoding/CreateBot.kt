@@ -24,7 +24,7 @@ class CreateBot :AppCompatActivity(){
     //서버통신
     var gson= GsonBuilder().setLenient().create()
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://fa7d-121-66-18-107.ngrok.io/")
+        .baseUrl("http://f022-121-66-18-107.ngrok.io/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
     private val service = retrofit.create(cbrequest ::class.java)
@@ -47,12 +47,13 @@ class CreateBot :AppCompatActivity(){
         cbBack_button.setOnClickListener() { //뒤로가기 버튼 클릭
             startActivity(cbGo_main)
         }
+        val sharedPreference = getSharedPreferences("UUID", 0) //유저 식별자
 
         cbCreatBot_btn.setOnClickListener() { //봇만들기 버튼 클릭
             val cbSetBotName = cbInputBotName.getText().toString() //봇네임 입력된 것을 받음
             val cbSetBotDescription = cbInputBotDescription.getText().toString() //봇설명 입력된것을 받음
             //서버통신 봇네임 받아서 보내야함
-            service.getbotinfo("김성훈", cbSetBotName,cbSetBotDescription,"","").enqueue(object : Callback<cbresult> {
+            service.getbotinfo(sharedPreference.getString("UUID", null).toString(), cbSetBotName,cbSetBotDescription,"").enqueue(object : Callback<cbresult> {
                 override fun onResponse(
                     call: Call<cbresult>,
                     response: Response<cbresult>

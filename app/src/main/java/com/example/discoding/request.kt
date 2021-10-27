@@ -11,18 +11,16 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.*
 
 data class MemberResult(
-    val val1: String
+    val uuid: String,
+    val msg : String
 )
 
 interface UserRequest {
 
     @FormUrlEncoded
-    @POST("/{path}")
+    @POST("/new")
     fun getuserinfo(
-        @Path("path") path: String,
-        @Field("userId") userId: String,
-        @Field("botName") botname: String,
-        @Field("eventName") eventname: String
+        @Field("UUID") UUID: String
     ): Call<MemberResult>
 
 }
