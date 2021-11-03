@@ -13,12 +13,13 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.math.E
 
 class Appmain : AppCompatActivity() {
 
     var gson= GsonBuilder().setLenient().create()
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://34.64.200.191:4000")
+        .baseUrl("http://10.0.2.2:80")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
@@ -34,6 +35,8 @@ class Appmain : AppCompatActivity() {
 
         val sharedPreference = getSharedPreferences("UUID", 0)
         val editor = sharedPreference.edit()
+        val mainRecycler = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.mainrecycler) //봇 목록 리사이클러뷰
+
         if(sharedPreference.getString("UUID", null).toString() == "null"){
             service2.getuuid().enqueue(object : Callback<uuid> {
                 override fun onResponse(
@@ -66,16 +69,28 @@ class Appmain : AppCompatActivity() {
                     response: Response<get_info>
                 ) {
                     //리사이클러뷰 하면됌
+
+                    val a = response.body()?.bot_name.toString()
+                    val b = response.body()?.des.toString()
+                    val c = response.body()?.img.toString()
+
+                    val a_arr = a.split(" ")
+                    val b_arr = b.split(" ")
+                    val c_arr = c.split(" ")
+                    val profileList = ArrayList<Profiles>()
+                    for(i in 1 until (a_arr.lastIndex + 1)){
+                        profileList.add(Profiles(a_arr[i]))
+                    }
+                    mainRecycler.layoutManager = LinearLayoutManager(this@Appmain, LinearLayoutManager.VERTICAL, false)
+                    mainRecycler.setHasFixedSize(true)
+                    mainRecycler.adapter = ProfileAdapter(profileList)
+
                 }
                 override fun onFailure(call: Call<get_info>, t: Throwable) {
                     Log.d("result",t.toString())
                 }
             })
         }
-
-
-
-
 
         val mHosting_btn = findViewById<android.widget.Button>(R.id.mHosting_btn) //메인페이지에 있는 호스팅 버튼
         val mShare_btn = findViewById<android.widget.Button>(R.id.mShare_btn) //메인페이지에 있는 공유 버튼
@@ -95,27 +110,5 @@ class Appmain : AppCompatActivity() {
             val mGo_CreateBot = Intent(this, CreateBot::class.java)
             startActivity(mGo_CreateBot)
         }
-
-        //리사이클러뷰
-        val mainRecycler = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.mainrecycler)
-        val profileList = arrayListOf(
-            Profiles("김은교 일해라"),
-            Profiles("가자"),
-            Profiles("ㄷ자"),
-            Profiles("ㄹ자"),
-            Profiles("ㅎ자"),
-            Profiles("ㅋ자"),
-            Profiles("ㅂ자")
-        )
-        mainRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        mainRecycler.setHasFixedSize(true)
-
-        mainRecycler.adapter = ProfileAdapter(profileList)
-
-
-
     }
-
-
-
 }
