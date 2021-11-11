@@ -23,6 +23,7 @@ import java.lang.Exception
 class CreateBot :AppCompatActivity(){
     //서버통신
     var gson= GsonBuilder().setLenient().create()
+    var image:String =""
     private val retrofit = Retrofit.Builder()
         .baseUrl("http://10.0.2.2:80")
         .addConverterFactory(GsonConverterFactory.create(gson))
@@ -53,7 +54,7 @@ class CreateBot :AppCompatActivity(){
             val cbSetBotName = cbInputBotName.getText().toString() //봇네임 입력된 것을 받음
             val cbSetBotDescription = cbInputBotDescription.getText().toString() //봇설명 입력된것을 받음
             //서버통신 봇네임 받아서 보내야함
-            service.getbotinfo(sharedPreference.getString("UUID", null).toString(), cbSetBotName,cbSetBotDescription,"").enqueue(object : Callback<cbresult> {
+            service.getbotinfo(sharedPreference.getString("UUID", null).toString(), cbSetBotName,cbSetBotDescription,image.toString()).enqueue(object : Callback<cbresult> {
                 override fun onResponse(
                     call: Call<cbresult>,
                     response: Response<cbresult>
@@ -71,10 +72,6 @@ class CreateBot :AppCompatActivity(){
         cbProfile_image.setOnClickListener() { //갤러리 올리기 중
             cbopenGallery()
         }
-
-
-
-
     }
 
     //프로필 이미지 선택
@@ -89,14 +86,15 @@ class CreateBot :AppCompatActivity(){
         super.onActivityResult(requestCode, resultCode, data)
         val cbProfile_image = findViewById<ImageView>(R.id.cbProfile_image)
         if(resultCode == Activity.RESULT_OK){
-            var ImmageData : Uri? = data?.data
+            var ImageData : Uri? = data?.data
             try {
-                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, ImmageData)
+                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, ImageData)
                 cbProfile_image.setImageBitmap(bitmap)
             }
             catch (e:Exception) {
                 e.printStackTrace()
             }
+            image = ImageData.toString()
         }
     }
 }

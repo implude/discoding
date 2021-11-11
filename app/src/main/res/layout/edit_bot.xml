@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:orientation="vertical"
-    tools:context=".EditBot">
+    tools:context = ".EditBot">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_bar"
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/bot_name"
+            android:id="@+id/ebbot_name"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="20dp"
@@ -54,261 +54,132 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageView
+        android:id="@+id/ebImage_View"
+        android:layout_width="162dp"
+        android:layout_height="162dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_bar"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/plusimage_button"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:layout_weight="3"
-        android:orientation="horizontal">
+    <EditText
+        android:id="@+id/ebBotName_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="봇 이름"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@id/ebImage_View"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="15dp"/>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
-
-        <ImageView
-            android:id="@+id/ebImage_View"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="8"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="3dp"
-                android:layout_height="0dp"
-                android:layout_weight="10"
-                android:layout_gravity="center"
-                android:background="@color/appskycolor" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/ebBotName_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="15dp"
-            android:layout_weight="8"
-            android:gravity="right"
-            android:hint="봇이름"
-            android:inputType="text"
-            android:textColorHint="#FFFFFF"
-            android:textSize="30sp" />
-
-        <ImageButton
-            android:id="@+id/ebEditname_btn"
-            android:layout_width="0dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center"
-            android:layout_weight="1.5"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/edit_button" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="40dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/ebDiscription"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            android:gravity="center_vertical"
-            android:hint="description"
-            android:textColorHint="@color/white"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            tools:ignore="DuplicateIds" />
-
-        <ImageButton
-            android:id="@+id/ebEditDis_btn"
-            android:layout_width="0dp"
-            android:layout_height="25dp"
-            android:layout_gravity="center"
-            android:layout_weight="1.5"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/edit_button" />
-
-    </LinearLayout>
-
+    <TextView
+        android:id="@+id/title_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="description"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/ebBotName_text"
+        android:layout_marginTop="30dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="60dp"/>
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/edit_button"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="@id/title_description"
+        app:layout_constraintRight_toLeftOf="@id/title_description" />
     <EditText
         android:id="@+id/ebDes_explain"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="20dp"
-        android:layout_weight="3"
-        android:hint="____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________"
-        android:textColorHint="@color/white"
-        android:textSize="15sp" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:hint="설명바꾸기"
+        android:textColorHint="#ACABAB"
+        android:textColor="@color/white"
+        android:inputType="textMultiLine"
+        android:maxLength="45"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/title_description"/>
 
-
-    <FrameLayout
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/edit_button"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toBottomOf="@id/ebDes_explain"
+        app:layout_constraintRight_toLeftOf="@id/title_description"
+        android:layout_marginTop="30dp"/>
+    <TextView
+        android:id="@+id/title_token"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Token"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="@id/title_description"
+        app:layout_constraintTop_toBottomOf="@id/ebDes_explain"
+        android:layout_marginTop="30dp"/>
+    <!--    토큰부분 수정하기-->
+    <EditText
+        android:id="@+id/ebtoken"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_weight="3">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/title_token"/>
 
-        <View
-            android:id="@+id/view3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/buttonstroke" />
+    <ImageView
+        android:id="@+id/ebShare_btn"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        tools:src="@drawable/editbot_share"
+        app:layout_constraintTop_toBottomOf="@id/ebtoken"
+        android:layout_marginTop="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.20" />
+    <ImageView
+        android:id="@+id/ebCoding_btn"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        tools:src="@drawable/editbot_coding"
+        app:layout_constraintTop_toTopOf="@id/ebShare_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"/>
+    <ImageView
+        android:id="@+id/ebEdit_btn"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        tools:src="@drawable/edit"
+        app:layout_constraintLeft_toLeftOf="@id/ebShare_btn"
+        app:layout_constraintTop_toBottomOf="@id/ebShare_btn"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <ImageView
+        android:id="@+id/ebDelete_btn"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        tools:src="@drawable/delete"
+        app:layout_constraintLeft_toLeftOf="@id/ebCoding_btn"
+        app:layout_constraintTop_toBottomOf="@id/ebCoding_btn"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="12"
-            android:orientation="vertical">
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1.5"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/ebToken_btn"
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:background="@android:color/transparent"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/edit_button" />
-
-                <EditText
-                    android:id="@+id/ebToken_text"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10sp"
-                    android:layout_weight="8"
-                    android:gravity="center_vertical"
-                    android:text="Token"
-                    android:textColor="#FFFFFF"
-                    android:textSize="8pt" />
-
-                <android.widget.Button
-                    android:id="@+id/ebReveal_btn"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="2"
-                    android:background="@android:color/transparent"
-                    android:text="Reveal"
-                    android:textColor="#4AC9FF"
-                    android:textSize="10sp" />
-            </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5" />
-
-
-        </LinearLayout>
-    </FrameLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:orientation="horizontal">
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.4" />
-
-        <ImageButton
-            android:id="@+id/ebShare_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            tools:src="@drawable/editbot_share" />
-
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <ImageButton
-            android:id="@+id/ebCoding_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            tools:src="@drawable/editbot_coding" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.4" />
-    </LinearLayout>
-
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

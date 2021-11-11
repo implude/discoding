@@ -7,380 +7,380 @@
     tools:context=".HostingActivity"
     android:background="@color/background">
 
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      tools:ignore="MissingConstraints">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        android:weightSum="10">
+
+      <LinearLayout
+          android:layout_weight="0.0625"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          tools:ignore="MissingConstraints"
+          android:weightSum="3">
+        <!-- 위에 메인 버튼-->
+        <android.widget.Button
+            android:id="@+id/hHosting_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text = "hosting"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:textColor="@color/appskycolor"
+            android:backgroundTint="#2F3136"
+            android:layout_weight="1"
+            android:background="@drawable/mainbutton"
+            />
+        <android.widget.Button
+            android:id="@+id/hMain_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text = "main"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"
+            android:background="@drawable/mainbutton"/>
+        <android.widget.Button
+            android:id="@+id/hShare_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:text = "share"
+            android:textAllCaps="false"
+            android:layout_weight="1"
+            android:background="@drawable/mainbutton"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          tools:ignore="MissingConstraints">
+
+        <Spinner
+            android:id="@+id/choose_spinner"
+            android:background="@drawable/spinner_bg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+
+        <ImageButton
+            android:id="@+id/hOnOff_btn"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="130sp"
+            android:layout_height="40sp"
+            android:background="@drawable/highon" />
+
+        <TextView
+            android:id="@+id/hremain_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15sp"
+            android:text="사용자님의 남은 호스팅 시간:"
+            android:textColor="#C8CACF"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/hTime_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="06:01:07"
+            android:textColor="#4AC9FF"
+            android:textSize="36sp" />
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_marginTop="30dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:weightSum="10">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
 
-            <LinearLayout
-                android:layout_weight="0.0625"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                tools:ignore="MissingConstraints"
-                android:weightSum="3">
-                <!-- 위에 메인 버튼-->
-                <android.widget.Button
-                    android:id="@+id/hHosting_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text = "hosting"
-                    android:textSize="18sp"
-                    android:textAllCaps="false"
-                    android:textColor="@color/appskycolor"
-                    android:backgroundTint="#2F3136"
-                    android:layout_weight="1"
-                    android:background="@drawable/mainbutton"
-                    />
-                <android.widget.Button
-                    android:id="@+id/hMain_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text = "main"
-                    android:textSize="18sp"
-                   android:textAllCaps="false"
-                    android:textColor="#FFFFFF"
-                    android:layout_weight="1"
-                    android:background="@drawable/mainbutton"/>
-                <android.widget.Button
-                    android:id="@+id/hShare_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:text = "share"
-                    android:textAllCaps="false"
-                    android:layout_weight="1"
-                    android:background="@drawable/mainbutton"/>
-            </LinearLayout>
+          <ImageView
+              android:layout_width="30sp"
+              android:layout_height="27sp"
+              android:background="@drawable/highclock"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                tools:ignore="MissingConstraints">
+          <TextView
+              android:layout_marginLeft="30dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="10:00"
+              android:textColor="#FFFFFF"
+              android:textSize="24sp"
+              android:textStyle="bold"/>
 
-                <Spinner
-                    android:id="@+id/choose_spinner"
-                    android:background="@drawable/spinner_bg"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginTop="20dp"
-                    android:textColor="#FFFFFF"
-                    android:layout_gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+          <ImageButton
+              android:id="@+id/h1AD_btn"
+              android:layout_marginLeft="100dp"
+              android:layout_width="75sp"
+              android:layout_height="33sp"
+              android:background="@drawable/highad"/>
 
-                <ImageButton
-                    android:id="@+id/hOnOff_btn"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
-                    android:layout_width="130sp"
-                    android:layout_height="40sp"
-                    android:background="@drawable/highon" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
 
-                <TextView
-                    android:id="@+id/hremain_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15sp"
-                    android:text="사용자님의 남은 호스팅 시간:"
-                    android:textColor="#C8CACF"
-                    android:textSize="16dp" />
+          <ImageView
+              android:layout_width="30sp"
+              android:layout_height="27sp"
+              android:background="@drawable/highclock"/>
 
-                <TextView
-                    android:id="@+id/hTime_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="06:01:07"
-                    android:textColor="#4AC9FF"
-                    android:textSize="36sp" />
-            </LinearLayout>
+          <TextView
+              android:layout_marginLeft="30dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="10:00"
+              android:textColor="#FFFFFF"
+              android:textSize="24sp"
+              android:textStyle="bold"/>
 
-            <LinearLayout
-                android:layout_marginTop="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="30sp"
-                        android:layout_height="27sp"
-                        android:background="@drawable/highclock"/>
-
-                    <TextView
-                        android:layout_marginLeft="30dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10:00"
-                        android:textColor="#FFFFFF"
-                        android:textSize="24sp"
-                        android:textStyle="bold"/>
-
-                    <ImageButton
-                        android:id="@+id/h1AD_btn"
-                        android:layout_marginLeft="100dp"
-                        android:layout_width="75sp"
-                        android:layout_height="33sp"
-                        android:background="@drawable/highad"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_marginTop="15dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="30sp"
-                        android:layout_height="27sp"
-                        android:background="@drawable/highclock"/>
-
-                    <TextView
-                        android:layout_marginLeft="30dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10:00"
-                        android:textColor="#FFFFFF"
-                        android:textSize="24sp"
-                        android:textStyle="bold"/>
-
-                    <ImageButton
-                        android:id="@+id/h2AD_btn"
-                        android:layout_marginLeft="100dp"
-                        android:layout_width="75sp"
-                        android:layout_height="33sp"
-                        android:background="@drawable/highad"/>
-
-                </LinearLayout>
-
-                <View
-                    android:layout_marginTop="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="3dp"
-                    android:background="#404AC9FF"
-                    />
-
-                <View
-                    android:layout_marginTop="7dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="3dp"
-                    android:background="#404AC9FF"
-                    />
-
-                <LinearLayout
-                    android:layout_marginTop="30dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="30sp"
-                        android:layout_height="27sp"
-                        android:background="@drawable/highclock"/>
-
-                    <TextView
-                        android:layout_marginLeft="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10:00"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-
-                    <ImageView
-                        android:layout_marginLeft="35dp"
-                        android:layout_width="25sp"
-                        android:layout_height="25sp"
-                        android:background="@drawable/highcoin"/>
-
-                    <TextView
-                        android:layout_marginLeft="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₩3,000"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-
-                    <ImageButton
-                        android:id="@+id/h1BUY_btn"
-                        android:layout_marginLeft="50dp"
-                        android:layout_width="75sp"
-                        android:layout_height="33sp"
-                        android:background="@drawable/highbuy"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="30dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="30sp"
-                        android:layout_height="27sp"
-                        android:background="@drawable/highclock"/>
-
-                    <TextView
-                        android:layout_marginLeft="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10:00"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-
-                    <ImageView
-                        android:layout_width="25sp"
-                        android:layout_height="25sp"
-                        android:background="@drawable/highcoin"
-                        android:layout_marginLeft="35dp" />
-
-                    <TextView
-                        android:layout_marginLeft="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₩4,000"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-
-                    <ImageButton
-                        android:id="@+id/h2BUY_btn"
-                        android:layout_marginLeft="50dp"
-                        android:layout_width="75sp"
-                        android:layout_height="33sp"
-                        android:background="@drawable/highbuy"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="30dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="30sp"
-                        android:layout_height="27sp"
-                        android:background="@drawable/highclock"/>
-
-                    <TextView
-                        android:layout_marginLeft="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10:00"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-
-                    <ImageView
-                        android:layout_marginLeft="35dp"
-                        android:layout_width="25sp"
-                        android:layout_height="25sp"
-                        android:background="@drawable/highcoin"/>
-
-                    <TextView
-                        android:layout_marginLeft="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₩5,000"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-
-                    <ImageButton
-                        android:id="@+id/h3BUY_btn"
-                        android:layout_marginLeft="50dp"
-                        android:layout_width="75sp"
-                        android:layout_height="33sp"
-                        android:background="@drawable/highbuy"/>
-
-                </LinearLayout>
-
-                <View
-                    android:layout_marginTop="30dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="3dp"
-                    android:background="#404AC9FF"
-                    />
-
-                <View
-                    android:layout_marginTop="7dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="3dp"
-                    android:background="#404AC9FF"
-                    />
-
-                <LinearLayout
-                    android:layout_marginTop="30dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="35dp"
-                        android:background="@drawable/highcoffee"/>
-
-                    <TextView
-                        android:layout_marginLeft="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="커피 한잔 사주세요"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:layout_marginLeft="30dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₩2,000"
-                        android:textColor="#FFFFFF"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
-
-                    <ImageButton
-                        android:id="@+id/hDONATE_btn"
-                        android:layout_marginLeft="30dp"
-                        android:layout_width="75sp"
-                        android:layout_height="33sp"
-                        android:background="@drawable/highdonate"/>
-
-                </LinearLayout>
-
-            </LinearLayout>
+          <ImageButton
+              android:id="@+id/h2AD_btn"
+              android:layout_marginLeft="100dp"
+              android:layout_width="75sp"
+              android:layout_height="33sp"
+              android:background="@drawable/highad"/>
 
         </LinearLayout>
 
+        <View
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#404AC9FF"
+            />
 
+        <View
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#404AC9FF"
+            />
 
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
 
+          <ImageView
+              android:layout_width="30sp"
+              android:layout_height="27sp"
+              android:background="@drawable/highclock"/>
+
+          <TextView
+              android:layout_marginLeft="15dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="10:00"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:textStyle="bold"/>
+
+          <ImageView
+              android:layout_marginLeft="35dp"
+              android:layout_width="25sp"
+              android:layout_height="25sp"
+              android:background="@drawable/highcoin"/>
+
+          <TextView
+              android:layout_marginLeft="15dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="₩3,000"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:textStyle="bold"/>
+
+          <ImageButton
+              android:id="@+id/h1BUY_btn"
+              android:layout_marginLeft="50dp"
+              android:layout_width="75sp"
+              android:layout_height="33sp"
+              android:background="@drawable/highbuy"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+          <ImageView
+              android:layout_width="30sp"
+              android:layout_height="27sp"
+              android:background="@drawable/highclock"/>
+
+          <TextView
+              android:layout_marginLeft="15dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="10:00"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:textStyle="bold"/>
+
+          <ImageView
+              android:layout_width="25sp"
+              android:layout_height="25sp"
+              android:background="@drawable/highcoin"
+              android:layout_marginLeft="35dp" />
+
+          <TextView
+              android:layout_marginLeft="15dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="₩4,000"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:textStyle="bold"/>
+
+          <ImageButton
+              android:id="@+id/h2BUY_btn"
+              android:layout_marginLeft="50dp"
+              android:layout_width="75sp"
+              android:layout_height="33sp"
+              android:background="@drawable/highbuy"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+          <ImageView
+              android:layout_width="30sp"
+              android:layout_height="27sp"
+              android:background="@drawable/highclock"/>
+
+          <TextView
+              android:layout_marginLeft="15dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="10:00"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:textStyle="bold"/>
+
+          <ImageView
+              android:layout_marginLeft="35dp"
+              android:layout_width="25sp"
+              android:layout_height="25sp"
+              android:background="@drawable/highcoin"/>
+
+          <TextView
+              android:layout_marginLeft="15dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="₩5,000"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:textStyle="bold"/>
+
+          <ImageButton
+              android:id="@+id/h3BUY_btn"
+              android:layout_marginLeft="50dp"
+              android:layout_width="75sp"
+              android:layout_height="33sp"
+              android:background="@drawable/highbuy"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#404AC9FF"
+            />
+
+        <View
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#404AC9FF"
+            />
+
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+          <ImageView
+              android:layout_width="20dp"
+              android:layout_height="35dp"
+              android:background="@drawable/highcoffee"/>
+
+          <TextView
+              android:layout_marginLeft="15dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="커피 한잔 사주세요"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:textStyle="bold"/>
+
+          <TextView
+              android:layout_marginLeft="30dp"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="₩2,000"
+              android:textColor="#FFFFFF"
+              android:textSize="16sp"
+              android:textStyle="bold"/>
+
+          <ImageButton
+              android:id="@+id/hDONATE_btn"
+              android:layout_marginLeft="30dp"
+              android:layout_width="75sp"
+              android:layout_height="33sp"
+              android:background="@drawable/highdonate"/>
+
+        </LinearLayout>
+
+      </LinearLayout>
 
     </LinearLayout>
+
+
+
+
+
+  </LinearLayout>
 
 
 

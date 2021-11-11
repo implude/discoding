@@ -75,23 +75,22 @@ class Appmain : AppCompatActivity() {
                     val c = response.body()?.img.toString()
 
                     val a_arr = a.split(" ")
-                    val b_arr = b.split(" ")
-                    val c_arr = c.split(" ")
+                    val b_arr = b.split("/")
+                    val c_arr = c.split("/")
                     val profileList = ArrayList<Profiles>()
                     for(i in 1 until (a_arr.lastIndex + 1)){
-                        profileList.add(Profiles(a_arr[i]))
+                        profileList.add(Profiles(a_arr[i],b_arr[i], c_arr[i]))
                     }
                     mainRecycler.layoutManager = LinearLayoutManager(this@Appmain, LinearLayoutManager.VERTICAL, false)
                     mainRecycler.setHasFixedSize(true)
                     mainRecycler.adapter = ProfileAdapter(profileList)
-
+                    Log.d("fsdfas", profileList.toString())
                 }
                 override fun onFailure(call: Call<get_info>, t: Throwable) {
                     Log.d("result",t.toString())
                 }
             })
         }
-
         val mHosting_btn = findViewById<android.widget.Button>(R.id.mHosting_btn) //메인페이지에 있는 호스팅 버튼
         val mShare_btn = findViewById<android.widget.Button>(R.id.mShare_btn) //메인페이지에 있는 공유 버튼
         val mPlus_btn = findViewById<android.widget.Button>(R.id.mPlus_btn) //메인페이지에 있는 플러스 버튼

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "19621853693",
+    "project_id": "discoding-dc66f",
+    "storage_bucket": "discoding-dc66f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19621853693:android:a6fa5f8f48bf37ff560194",
+        "android_client_info": {
+          "package_name": "com.example.discoding"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "19621853693-oms2gi7ac8v0fn9lklinc6cue543bl5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3X-oAyaZ0B70BKkb2j_yteL3Vc2_Qm7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "19621853693-oms2gi7ac8v0fn9lklinc6cue543bl5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
