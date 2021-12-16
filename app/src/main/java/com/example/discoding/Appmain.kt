@@ -1,11 +1,9 @@
 package com.example.discoding
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -13,7 +11,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import kotlin.math.E
 
 class Appmain : AppCompatActivity() {
 
@@ -35,8 +32,26 @@ class Appmain : AppCompatActivity() {
 
         val sharedPreference = getSharedPreferences("UUID", 0)
         val editor = sharedPreference.edit()
-        val mainRecycler = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.mainrecycler) //봇 목록 리사이클러뷰
 
+        val mainRecycler = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.mainrecycler) //봇 목록 리사이클러뷰
+        val mHosting_btn = findViewById<android.widget.Button>(R.id.mHosting_btn) //메인페이지에 있는 호스팅 버튼
+        val mShare_btn = findViewById<android.widget.Button>(R.id.mShare_btn) //메인페이지에 있는 공유 버튼
+        val mPlus_btn = findViewById<android.widget.Button>(R.id.mPlus_btn) //메인페이지에 있는 플러스 버튼
+
+        mHosting_btn.setOnClickListener() { //메인에서 호스팅 페이지로
+            val mGo_hosting = Intent(this, HostingActivity::class.java)
+            startActivity(mGo_hosting)
+        }
+
+        mShare_btn.setOnClickListener() { //메인에서 공유 페이지로
+            val mGo_share = Intent(this, Share::class.java)
+            startActivity(mGo_share)
+        }
+
+        mPlus_btn.setOnClickListener() { //메인에서 봇생성페이지로
+            val mGo_CreateBot = Intent(this, CreateBot::class.java)
+            startActivity(mGo_CreateBot)
+        }
         if(sharedPreference.getString("UUID", null).toString() == "null"){
             service2.getuuid().enqueue(object : Callback<uuid> {
                 override fun onResponse(
@@ -76,7 +91,7 @@ class Appmain : AppCompatActivity() {
 
                     val a_arr = a.split(" ")
                     val b_arr = b.split("/")
-                    val c_arr = c.split("/")
+                    val c_arr = c.split("|")
                     val profileList = ArrayList<Profiles>()
                     for(i in 1 until (a_arr.lastIndex + 1)){
                         profileList.add(Profiles(a_arr[i],b_arr[i], c_arr[i]))
@@ -84,30 +99,12 @@ class Appmain : AppCompatActivity() {
                     mainRecycler.layoutManager = LinearLayoutManager(this@Appmain, LinearLayoutManager.VERTICAL, false)
                     mainRecycler.setHasFixedSize(true)
                     mainRecycler.adapter = ProfileAdapter(profileList)
-                    Log.d("fsdfas", profileList.toString())
                 }
                 override fun onFailure(call: Call<get_info>, t: Throwable) {
                     Log.d("result",t.toString())
                 }
             })
         }
-        val mHosting_btn = findViewById<android.widget.Button>(R.id.mHosting_btn) //메인페이지에 있는 호스팅 버튼
-        val mShare_btn = findViewById<android.widget.Button>(R.id.mShare_btn) //메인페이지에 있는 공유 버튼
-        val mPlus_btn = findViewById<android.widget.Button>(R.id.mPlus_btn) //메인페이지에 있는 플러스 버튼
 
-        mHosting_btn.setOnClickListener() { //메인에서 호스팅 페이지로
-            val mGo_hosting = Intent(this, HostingActivity::class.java)
-            startActivity(mGo_hosting)
-        }
-
-        mShare_btn.setOnClickListener() { //메인에서 공유 페이지로
-            val mGo_share = Intent(this, Share::class.java)
-            startActivity(mGo_share)
-        }
-
-        mPlus_btn.setOnClickListener() { //메인에서 봇생성페이지로
-            val mGo_CreateBot = Intent(this, CreateBot::class.java)
-            startActivity(mGo_CreateBot)
-        }
     }
 }

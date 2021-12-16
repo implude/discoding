@@ -1,13 +1,14 @@
 package com.example.discoding
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import java.util.*
 
 class ProfileAdapter(val profileList: ArrayList<Profiles>) : RecyclerView.Adapter<ProfileAdapter.CustomViewHolder> () {
 
@@ -24,16 +25,18 @@ class ProfileAdapter(val profileList: ArrayList<Profiles>) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: ProfileAdapter.CustomViewHolder, position: Int) {
         holder.name.text = profileList.get(position).name
         holder.description.text = profileList.get(position).description
-        //URI고치기
-        holder.imgUri.setImageURI(profileList.get(position).botUri.toUri())
-    }
 
+        Glide.with(holder.imagetag).load("http://10.0.2.2:80/public/images/Group 130.png").into(holder.imagetag)
+        holder.itemView.setOnClickListener { v ->
+            val intent = Intent(v.context, EditBot::class.java)
+            intent.putExtra("name", profileList.get(position).name)
+            intent.putExtra("description", profileList.get(position).description)
+            v.context.startActivity(intent)
+        }
+    }
     class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val name = itemView.findViewById<TextView>(R.id.bot_name) //봇 이름
         val description = itemView.findViewById<TextView>(R.id.bot_description)
-        val imgUri = itemView.findViewById<ImageView>(R.id.bot_Image)
+        val imagetag = itemView.findViewById<ImageView>(R.id.bot_Image)
     }
-
-
-
 }

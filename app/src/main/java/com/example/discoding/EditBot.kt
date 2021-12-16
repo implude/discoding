@@ -5,22 +5,48 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import java.lang.Exception
+import com.google.gson.GsonBuilder
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class EditBot:AppCompatActivity() {
 
     private val ebOPEN_GALLERY = 1
 
+    var gson = GsonBuilder().setLenient().create()
+    private val retrofit = Retrofit.Builder()
+        .baseUrl("http://10.0.2.2:80")
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .build()
+    private val service = retrofit.create(request_from_editbot::class.java)
+    private val service1 = retrofit.create(remove_bot::class.java)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.edit_bot)
 
+
+
+        val name = intent.getStringExtra("name")
+
+        val ebBotName_text = findViewById<EditText>(R.id.ebBotName_text)
         val ebBack_button = findViewById<ImageButton>(R.id.ebBack_button) //에딧봇에 있는 뒤로가기 버튼
         val ebShare_btn = findViewById<ImageView>(R.id.ebShare_btn) //에딧봇에 있는 공유로 가기 버튼
         val ebCoding_btn = findViewById<ImageView>(R.id.ebCoding_btn) //에딧봇에있는 코딩하러가기 버튼
+        val ebEdit_btn = findViewById<ImageView>(R.id.ebEdit_btn)
+        val ebDes_explain = findViewById<EditText>(R.id.ebDes_explain)
+        val ebDelete_btn= findViewById<ImageView>(R.id.ebDelete_btn)
+
+
+        ebBotName_text.hint = name.toString()
 
         ebBack_button.setOnClickListener() { //에딧봇에서 뒤로가기버튼누르면 메인으로 가기
             val ebGo_main = Intent(this, Appmain::class.java)
@@ -30,7 +56,45 @@ class EditBot:AppCompatActivity() {
             val ebGo_share = Intent(this, Share::class.java)
             startActivity(ebGo_share)
         }
+        ebDelete_btn.setOnClickListener(){
+            service1.delete(name.toString()).enqueue(object : Callback<get_from_back> {
+                override fun onResponse(
+                    call: Call<get_from_back>,
+                    response: Response<get_from_back>
+                ) {
+                    Log.d("메세지입니다", response.body()?.msg.toString())
+                }
 
+                override fun onFailure(call: Call<get_from_back>, t: Throwable) {
+                    Log.d("result", t.toString())
+                }
+            })
+            val ebGo_main = Intent(this, Appmain::class.java)
+            startActivity(ebGo_main)
+        }
+
+        ebCoding_btn.setOnClickListener(){
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://10.0.2.2:80/block-coding"))
+            startActivity(intent)
+        }
+
+        ebEdit_btn.setOnClickListener(){
+            service.noget(name.toString(),ebDes_explain.text.toString(), ebBotName_text.text.toString()).enqueue(object : Callback<post_bot_data> {
+                override fun onResponse(
+                    call: Call<post_bot_data>,
+                    response: Response<post_bot_data>
+                ) {
+                    Log.d("메세지입니다", response.body()?.msg.toString())
+                }
+
+                override fun onFailure(call: Call<post_bot_data>, t: Throwable) {
+                    Log.d("result", t.toString())
+                }
+            })
+
+            val intent = Intent(this, Appmain::class.java)
+            startActivity(intent)
+        }
 
 
     }
