@@ -26,7 +26,7 @@ class ProfileAdapter(val profileList: ArrayList<Profiles>) : RecyclerView.Adapte
         holder.name.text = profileList.get(position).name
         holder.description.text = profileList.get(position).description
 
-        Glide.with(holder.imagetag).load("http://10.0.2.2:80/public/images/Group 130.png").into(holder.imagetag)
+        Glide.with(holder.imagetag).load("http://selfstudy.kro.kr:5000/public/images/Group 130.png").into(holder.imagetag)
         holder.itemView.setOnClickListener { v ->
             val intent = Intent(v.context, EditBot::class.java)
             intent.putExtra("name", profileList.get(position).name)

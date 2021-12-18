@@ -15,5 +15,6 @@ interface request_from_editbot {
         @Field("name") name: String,
         @Field("des") des: String,
         @Field("chname") chname : String,
+        @Field("token") token : String,
     ): Call<post_bot_data>
 }

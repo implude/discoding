@@ -28,7 +28,7 @@ class CreateBot :AppCompatActivity() {
     var gson = GsonBuilder().setLenient().create()
     var image: Uri? = null
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://10.0.2.2:80")
+        .baseUrl("http://selfstudy.kro.kr:5000/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
     private val service = retrofit.create(cbrequest::class.java)
@@ -44,6 +44,8 @@ class CreateBot :AppCompatActivity() {
         val cbCreatBot_btn = findViewById<Button>(R.id.cbCreatBot_btn)// 봇 만들기 버튼
         val cbGo_main = Intent(this, Appmain::class.java) // 뒤로가기버튼이나 봇만들기 버튼 둘 중 아무거나 눌러도 메인으로 감
         val cbInputBotName = findViewById<EditText>(R.id.cbExplain_botname) //봇이름 입력
+        val cbTocken_explain = findViewById<EditText>(R.id.cbTocken_explain)
+
 
         val cbInputBotDescription = findViewById<EditText>(R.id.cbDescription_explain)
 
@@ -61,7 +63,8 @@ class CreateBot :AppCompatActivity() {
                 sharedPreference.getString("UUID", null).toString(),
                 cbSetBotName,
                 cbSetBotDescription,
-                path
+                path,
+                cbTocken_explain.text.toString()
             ).enqueue(object : Callback<cbresult> {
                 override fun onResponse(
                     call: Call<cbresult>,

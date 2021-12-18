@@ -1,6 +1,7 @@
 package com.example.discoding
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -23,7 +24,7 @@ class EditBot:AppCompatActivity() {
 
     var gson = GsonBuilder().setLenient().create()
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://10.0.2.2:80")
+        .baseUrl("http://selfstudy.kro.kr:5000/")
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
     private val service = retrofit.create(request_from_editbot::class.java)
@@ -36,6 +37,7 @@ class EditBot:AppCompatActivity() {
 
 
         val name = intent.getStringExtra("name")
+        val description = intent.getStringExtra("description")
 
         val ebBotName_text = findViewById<EditText>(R.id.ebBotName_text)
         val ebBack_button = findViewById<ImageButton>(R.id.ebBack_button) //에딧봇에 있는 뒤로가기 버튼
@@ -44,7 +46,10 @@ class EditBot:AppCompatActivity() {
         val ebEdit_btn = findViewById<ImageView>(R.id.ebEdit_btn)
         val ebDes_explain = findViewById<EditText>(R.id.ebDes_explain)
         val ebDelete_btn= findViewById<ImageView>(R.id.ebDelete_btn)
+        val ebtoken = findViewById<EditText>(R.id.ebtoken)
 
+
+        ebBotName_text.hint = description.toString()
 
         ebBotName_text.hint = name.toString()
 
@@ -53,8 +58,19 @@ class EditBot:AppCompatActivity() {
             startActivity(ebGo_main)
         }
         ebShare_btn.setOnClickListener() { //에딧봇에서 공유버튼 누르면 공유창 가기
-            val ebGo_share = Intent(this, Share::class.java)
-            startActivity(ebGo_share)
+//            val ebGo_share = Intent(this, Share::class.java)
+//            startActivity(ebGo_share)
+            try {
+                val sendText = "제 디스코드 봇을 소개합니다! %s, %s".format(name.toString(),description.toString()) +
+                        "--Discoding에서 제작되었습니다--"
+                val sendIntent = Intent()
+                sendIntent.action = Intent.ACTION_SEND
+                sendIntent.putExtra(Intent.EXTRA_TEXT, sendText)
+                sendIntent.type = "text/plain"
+                startActivity(Intent.createChooser(sendIntent, "Share"))
+            } catch (ignored: ActivityNotFoundException) {
+                Log.d("test", "ignored : $ignored")
+            }
         }
         ebDelete_btn.setOnClickListener(){
             service1.delete(name.toString()).enqueue(object : Callback<get_from_back> {
@@ -74,12 +90,13 @@ class EditBot:AppCompatActivity() {
         }
 
         ebCoding_btn.setOnClickListener(){
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://10.0.2.2:80/block-coding"))
+            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://selfstudy.kro.kr:5000/block-coding"))
+
             startActivity(intent)
         }
 
         ebEdit_btn.setOnClickListener(){
-            service.noget(name.toString(),ebDes_explain.text.toString(), ebBotName_text.text.toString()).enqueue(object : Callback<post_bot_data> {
+            service.noget(name.toString(),ebDes_explain.text.toString(), ebBotName_text.text.toString(), ebtoken.text.toString()).enqueue(object : Callback<post_bot_data> {
                 override fun onResponse(
                     call: Call<post_bot_data>,
                     response: Response<post_bot_data>
