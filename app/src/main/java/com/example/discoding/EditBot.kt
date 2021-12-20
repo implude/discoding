@@ -90,8 +90,7 @@ class EditBot:AppCompatActivity() {
         }
 
         ebCoding_btn.setOnClickListener(){
-            var intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://selfstudy.kro.kr:5000/block-coding"))
-
+            val intent = Intent(this, coding::class.java)
             startActivity(intent)
         }
 

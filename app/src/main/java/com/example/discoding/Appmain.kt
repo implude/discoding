@@ -12,7 +12,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class Appmain : AppCompatActivity() {
+class   Appmain : AppCompatActivity() {
 
     var gson= GsonBuilder().setLenient().create()
     private val retrofit = Retrofit.Builder()
